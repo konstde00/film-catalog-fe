@@ -1,0 +1,13 @@
+{
+  "HOME_PAGE": "/",
+  "FILM_PAGE": "/films/:filmId",
+  "LOGIN_PAGE": "/login",
+  "PROFILE": "/profile",
+  "COLLECTIONS": "/collections",
+  "COLLECTION_PAGE": "/collections/:collectionId",
+  "REGISTRATION_PAGE": "/registration",
+  "GENERATE_CONFIRMATION_CODE": "/code/generate",
+  "CONFIRM_CODE": "/code/confirm",
+  "CHANGE_PASSWORD": "/password/change",
+  "UNAUTHORIZED": "/unauthorized"
+}

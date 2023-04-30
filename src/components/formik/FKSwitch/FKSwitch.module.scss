@@ -1,0 +1,9 @@
+@import "../../../index.scss";
+
+.switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $transparent-color;
+  cursor: pointer;
+}

@@ -1,0 +1,21 @@
+.labelRight {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 15px;
+
+  & > span:first-child {
+    font-weight: bold;
+  }
+}
+
+.labelTop {
+  display: flex;
+  flex-direction: column;
+
+  & > span:first-child {
+    font-size: 12px;
+    margin-bottom: 4px;
+    display: inline-block;
+  }
+}

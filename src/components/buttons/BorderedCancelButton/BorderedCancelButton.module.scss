@@ -1,0 +1,32 @@
+@import "../../../index.scss";
+
+$hover-color: #DA1B5E10;
+
+.button {
+  border-color: $dark-grey-color !important;
+  color: $dark-grey-color !important;
+  font-weight: 400 !important;
+  font-size: 15px !important;
+  background-color: $transparent-color !important;
+  //border: 1px solid $border-color !important;
+  border-radius: 8px !important;
+  box-sizing: border-box;
+
+  &:hover {
+    //background-color: $hover-color !important;
+    //border: 1px solid $border-color !important;
+    opacity: 0.8;
+  }
+
+  &:active, &:focus, &::after {
+    box-shadow: none !important;
+  }
+
+  &:disabled {
+    &:hover {
+      background-color: unset !important;
+    }
+
+    opacity: 0.7;
+  }
+}

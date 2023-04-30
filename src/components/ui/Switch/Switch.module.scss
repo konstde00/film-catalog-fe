@@ -1,0 +1,10 @@
+@import "../../../index.scss";
+
+.switch {
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+}

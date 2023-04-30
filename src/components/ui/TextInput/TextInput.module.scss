@@ -1,0 +1,10 @@
+@import "../../../index.scss";
+
+.textInput {
+  width: 215px;
+  height: 36px;
+  background: #FFFFFF;
+  border: 1px solid $dark-grey-color !important;
+  box-sizing: border-box;
+  border-radius: 2px;
+}

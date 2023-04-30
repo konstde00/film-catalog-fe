@@ -1,0 +1,14 @@
+@import "../../../index.scss";
+
+.button {
+  display: flex;
+  align-items: center;
+  background-color: $transparent-color;
+  cursor: pointer;
+
+  &_title {
+    margin-left: 4px;
+    font-size: 18px;
+    color: $black-color;
+  }
+}

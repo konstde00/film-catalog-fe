@@ -1,0 +1,33 @@
+@import "../../../index.scss";
+
+$hover-color: #b9164f;
+
+.button {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  color: $white-color !important;
+  background-color: $pink-color !important;
+  border-radius: 8px !important;
+  border: none !important;
+  box-sizing: border-box;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+
+
+  &:hover {
+    background-color: $hover-color !important;
+  }
+
+  &:active, &:focus, &::after {
+    box-shadow: none !important;
+  }
+
+  &[type='reset'] {
+    background-color: $grey-color !important;
+  }
+
+  &:disabled {
+    opacity: .7;
+  }
+}

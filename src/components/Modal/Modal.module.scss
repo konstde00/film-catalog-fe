@@ -1,0 +1,30 @@
+@import "../../index";
+
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 25px;
+  background-color: $white-color;
+  z-index: 10;
+
+  .closeIcon {
+    color: $black-color;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  span {
+    font-weight: bold;
+  }
+}
+
+.content {
+  min-height: 250px;
+  background-color: $background-color;
+  padding: 25px;
+}

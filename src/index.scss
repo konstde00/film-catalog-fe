@@ -1,0 +1,224 @@
+$pink-color: #DA1B5E;
+$background-color: #F8F8F8;
+$light-grey: #F2F2F2;
+$grey-color: #727777;
+$black-color: #000000;
+$white-color: #d2c7c7;
+$transparent-color: transparent;
+$border-color: #D4D4D4;
+$green-color: #00A887;
+$yellow-color: #E5BF18;
+$blue-color: #00ACC0;
+$shadow-color: #DA1B5E50;
+$gray-border-color: #C7C9C9;
+$gray-background-color: #AAADAD;
+$gradient-background-color: linear-gradient(287.86deg, #282828 0%, #404055 48.28%, #141414 98.62%);
+$thead-background-color: #E5F0F4;
+$tbody-background-color: #edf3fa;
+$dark-grey-color: #5C5C6E;
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'SimonKucher', sans-serif !important;
+}
+
+.loader {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  background-color: #fff;
+}
+
+button {
+  border: none;
+}
+
+.ant-input {
+  &:hover {
+    border-color: $pink-color !important;
+  }
+
+  border-radius: 8px !important;
+
+  &:focus {
+    border-color: $pink-color !important;
+    box-shadow: 0 0 0 0.2rem $shadow-color !important;
+  }
+}
+
+.ant-switch-checked {
+  background-color: $black-color !important;
+
+  &:focus {
+    box-shadow: none !important;
+  }
+}
+
+.ant-select-item-option-selected {
+  background-color: $pink-color !important;
+  color: $white-color !important;
+}
+
+.ant-table-cell {
+  height: 64px !important;
+}
+
+.ant-table-column-sorter-down, .ant-table-column-sorter-up {
+  &.active {
+    color: $black-color !important;
+  }
+
+  svg {
+    height: 15px !important;
+    width: 15px !important;
+  }
+}
+
+.editable-cell {
+  position: relative;
+}
+
+.editable-cell-value-wrap {
+  width: 100%;
+  height: 32px;
+  padding: 5px 0 5px 12px !important;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-color: $transparent-color;
+}
+
+.editable-row:hover .editable-cell-value-wrap {
+  padding: 5px 0 5px 12px !important;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+}
+
+[data-theme='dark'] .editable-row:hover .editable-cell-value-wrap {
+  border: 1px solid #434343;
+}
+
+.ant-checkbox-checked {
+  .ant-checkbox-inner {
+    background-color: $pink-color !important;
+    border-color: $pink-color !important;
+  }
+
+  &::after {
+    border: 1px solid $pink-color !important;
+  }
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox-inner,
+.ant-checkbox:hover .ant-checkbox-inner,
+.ant-checkbox-input:focus + .ant-checkbox-inner {
+  border-color: $pink-color !important;
+}
+
+.ant-checkbox-indeterminate .ant-checkbox-inner::after {
+  background-color: $pink-color !important;
+}
+
+.ant-select-arrow .anticon:not(.ant-select-suffix) {
+  pointer-events: none !important;
+}
+
+.ant-collapse > .ant-collapse-item > .ant-collapse-header .ant-collapse-extra {
+  float: left !important;
+  margin-right: 15px;
+}
+
+.ant-collapse .ant-collapse-content {
+  background-color: $background-color;
+}
+
+.ant-collapse > .ant-collapse-item.ant-collapse-no-arrow > .ant-collapse-header {
+  padding: 10px 10px 10px 22px !important;
+  background-color: $grey-color;
+  color: #fff;
+  font-size: 20px;
+}
+
+.ant-pagination-prev:focus-visible .ant-pagination-item-link,
+.ant-pagination-next:focus-visible .ant-pagination-item-link,
+.ant-pagination-prev:hover .ant-pagination-item-link,
+.ant-pagination-next:hover .ant-pagination-item-link {
+  border-color: $pink-color !important;
+
+  path {
+    fill: $pink-color !important;
+  }
+}
+
+.ant-pagination-prev:focus-visible .ant-pagination-item-link,
+.ant-pagination-next:focus-visible .ant-pagination-item-link,
+.ant-pagination-prev:hover .ant-pagination-item-link,
+.ant-pagination-next:hover .ant-pagination-item-link,
+.ant-pagination-item-active a,
+.ant-pagination-item:focus-visible a,
+.ant-pagination-item:hover a {
+  color: $pink-color !important;
+}
+
+.ant-pagination-item-active, .ant-pagination-item:focus-visible, .ant-pagination-item:hover {
+  border-color: $pink-color !important;
+}
+
+.ant-spin-dot-item {
+  background-color: $pink-color !important;
+}
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: $pink-color !important;
+}
+
+.ant-table-column-title {
+  margin-left: 16px;
+}
+
+.continents {
+  .ant-table {
+    min-height: 585px;
+  }
+
+  tbody tr {
+    height: 65px;
+  }
+
+  thead tr {
+    height: 65px;
+  }
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  align-items: center;
+  border-radius: 8px !important;
+  border-color: $dark-grey-color !important;
+}
+
+div::-webkit-scrollbar {
+  width: 8px !important;
+  height: 12px !important;
+}
+
+
+div::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 14px 140px transparent !important;
+  border: none !important;
+  border-radius: 4px;
+}
+
+div::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.25) !important;
+  background-clip: content-box !important;
+  border: 2px solid transparent !important;
+  border-radius: 15px !important;
+  scrollbar-width: 10px !important;
+}

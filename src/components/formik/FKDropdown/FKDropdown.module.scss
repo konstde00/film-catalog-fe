@@ -1,0 +1,31 @@
+@import "../../../index.scss";
+
+$shadow-color: #DA1B5E50;
+
+.dropdown {
+  height: 40px !important;
+
+  :global {
+    .ant-select-selector {
+      height: 40px !important;
+
+      &:hover {
+        border-color: $pink-color !important;
+      }
+
+      &:focus, &:focus-within {
+        border-color: $pink-color !important;
+        box-shadow: 0 0 0 0.2rem $shadow-color !important;
+      }
+    }
+
+    .ant-select-selector {
+      padding-top: 4px !important;
+    }
+  }
+
+  &_icon {
+    color: $pink-color !important;
+    font-size: 18px;
+  }
+}
