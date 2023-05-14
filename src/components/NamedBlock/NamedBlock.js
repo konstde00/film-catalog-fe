@@ -21,10 +21,7 @@ export const NamedBlock = observer(
     };
     const onClickDeleteBtn = async (e) => {
       e.stopPropagation();
-      // const confirmed = await asyncConfirm({ title: t('namedBlocks.deleteBlock', { name: block.name }) });
-      // if (confirmed) {
         onDelete(block.id);
-      // }
 
       setIsOpen(false);
     };

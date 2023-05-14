@@ -2,7 +2,6 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import routes from "../../routes/routes.json";
 import Login from "../Login/Login";
-import Charts from "../Charts/Charts";
 import Registration from "../Registration/Registration";
 import NoMatch from "../NavBar/NoMatch";
 import useToken from "./useToken";
@@ -18,7 +17,7 @@ import CollectionMain from "../Collection/CollectionMain";
 
 const App = () => {
 
-  const { token, setToken } = useToken();
+  const { setToken } = useToken();
 
   return (
     <>

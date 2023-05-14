@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Registration.css';
 import { fetchRequest } from "../../api/utils/request";
-import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 async function registrateUser(credentials) {
     return fetchRequest({

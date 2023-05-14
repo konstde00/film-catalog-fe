@@ -113,16 +113,16 @@ const UserProfile = () => {
           <button type="submit">Update name</button>
         </form>
         <br/>
-        <form onSubmit={handleUserNameChange}>
-          <label>
-            Username:
-            <input type="text"
-                   style={{marginLeft: "15px"}}
-                   placeholder={"Tap your username here"}
-                   onChange={(e) => setUserName(e.target.value)} />
-          </label>
-          <button type="submit">Update username</button>
-        </form>
+        {/*<form onSubmit={handleUserNameChange}>*/}
+        {/*  <label>*/}
+        {/*    Username:*/}
+        {/*    <input type="text"*/}
+        {/*           style={{marginLeft: "15px"}}*/}
+        {/*           placeholder={"Tap your username here"}*/}
+        {/*           onChange={(e) => setUserName(e.target.value)} />*/}
+        {/*  </label>*/}
+        {/*  <button type="submit">Update username</button>*/}
+        {/*</form>*/}
         <br/>
         <form onSubmit={handleSubmit(uploadFile)}>
           <input type="file" {...register("file")} />

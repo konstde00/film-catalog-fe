@@ -37,6 +37,7 @@ export default function Home() {
   }
 
   const onCreateFilm = (closeModal) => {
+
     return async ({
                     name,
                     genre,
@@ -94,6 +95,21 @@ export default function Home() {
   }
 
   async function updateFilm(formData, urlParams) {
+
+    if (urlParams.completionYear !== undefined && urlParams.completionYear !== null
+      && urlParams.completionYear < 1895) {
+      toast.error("Year has to be bigger than 1895", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light"
+      });
+    }
+
     try {
       await instance.patch("http://localhost:8080/api/films/v1?"
         + new URLSearchParams(urlParams).toString(), formData, {
@@ -201,7 +217,9 @@ export default function Home() {
              id="completionYear"
              name="completionYear"
              defaultValue={(currentFilm && currentFilm.completionYear) ? currentFilm.completionYear : ""}
-             onChange={(e) => setCompletionYear(e.target.value)}></input>
+             onChange={(e) => {
+               setCompletionYear(e.target.value)
+             }}></input>
       <label htmlFor="fname" style={{ marginBottom: "10px" }}>Movie photo:</label>
       <input type="file" style={{ marginBottom: "10px" }} {...register("file")} />
     </>;
@@ -212,23 +230,38 @@ export default function Home() {
       <>
         <div>
           <form onSubmit={handleSubmit(async (event) => {
-            const formData = new FormData();
-            formData.append("photo", event.file[0]);
-            await addFilm(formData, {
-              name: filmName,
-              genre: genre,
-              durationMins: duration,
-              company: company,
-              director: director,
-              producers: producers,
-              writers: writers,
-              cast: cast,
-              trailerUrl: trailerUrl,
-              synopsis: synopsis,
-              completionYear: completionYear
-            });
-            closeModal();
-            setFilms(getAllFilms);
+
+            if (completionYear !== undefined && completionYear !== null
+              && completionYear < 1895) {
+              toast.error("Year has to be bigger than 1895", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light"
+              });
+            } else {
+              const formData = new FormData();
+              formData.append("photo", event.file[0]);
+              await addFilm(formData, {
+                name: filmName,
+                genre: genre,
+                durationMins: duration,
+                company: company,
+                director: director,
+                producers: producers,
+                writers: writers,
+                cast: cast,
+                trailerUrl: trailerUrl,
+                synopsis: synopsis,
+                completionYear: completionYear
+              });
+              closeModal();
+              setFilms(getAllFilms);
+            }
           })}>
             {modifyFilmInputs}
             <button type="submit">
@@ -307,7 +340,9 @@ export default function Home() {
       <NavBar />
       <ToastContainer />
       <NamedBlocks
+        allowCreation={roles && roles.includes("ROLE_ADMIN")}
         allowModifying={roles && roles.includes("ROLE_ADMIN")}
+        allowDeletion={roles && roles.includes("ROLE_ADMIN")}
         blocksList={films}
         clearBlocks={clearFilms}
         renderModalBodyCreate={renderModalBodyCreate}
