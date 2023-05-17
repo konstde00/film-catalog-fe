@@ -126,6 +126,7 @@ export default function Home() {
     } catch (err) {
       console.log("Err: " + err);
     }
+    setFilmModified(true);
   }
 
   const [filmModified, setFilmModified] = useState(false);
@@ -266,17 +267,17 @@ export default function Home() {
             formData.append("photo", event.file[0]);
             await updateFilm(formData, {
               filmId: film.id,
-              name: filmName,
-              genre: genre,
-              durationMins: duration,
-              company: company,
-              director: director,
-              producers: producers,
-              writers: writers,
-              cast: cast,
-              trailerUrl: trailerUrl,
-              synopsis: synopsis,
-              completionYear: completionYear
+              name: !filmName ? film.name : filmName,
+              genre: !genre ? film.genre.toUpperCase() : genre,
+              durationMins: !duration ? film.durationMins : duration,
+              company: !company ? film.company : company,
+              director: !director ? film.director : director,
+              producers: !producers ? film.producers : producers,
+              writers: !writers ? film.writers : writers,
+              cast: !cast ? film.cast : cast,
+              trailerUrl: !trailerUrl ? film.trailerUrl : trailerUrl,
+              synopsis: !synopsis ? film.synopsis : synopsis,
+              completionYear: !completionYear ? film.completionYear : completionYear
             });
             if (filmModified) {
               closeModal();
