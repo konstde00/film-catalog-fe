@@ -78,7 +78,7 @@ const Film = (props) => {
       <div className="review-header" >
         <div style={{ display: "inline-block" }} >
           <img height={"50px"} width={"50px"} style={{borderRadius: "10px"}}
-               src={"https://filmcatalog.s3.amazonaws.com/users/" + review.userId + "/avatar"} alt="User Photo" />
+               src={"https://filmcatalog.s3.us-east-1.amazonaws.com/users/" + review.userId + "/avatar"} alt="User Photo" />
         </div>
         <div style={{ display: "inline-block", marginLeft: "10px" }} >
           <h2 style={{ marginBottom: "5px" }}>{review.userName}</h2>
