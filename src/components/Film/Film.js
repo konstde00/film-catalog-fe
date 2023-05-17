@@ -171,18 +171,10 @@ const Film = (props) => {
             </div>
             <hr></hr>
 
-            <h3>Company</h3>
-            <p>{film.company}</p>
-            <hr></hr>
-
             <h3>Cast &amp; Crew</h3>
             <div className="cast-crew">
               <h4>Director</h4>
               <p>{film.director}</p>
-              <h4>Producers</h4>
-              <p>{film.producers}</p>
-              <h4>Writers</h4>
-              <p>{film.writers}</p>
               <h4>Cast</h4>
               <p>{film.cast}</p>
             </div>

@@ -61,8 +61,10 @@ export default function Login({ setToken }) {
       email,
       password
     });
-    setToken(token);
-    navigate("/");
+    if (token) {
+      setToken(token);
+      navigate("/");
+    }
   }
 
     return (

@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from '../Modal/Modal';
+
 const emptyFunction = () => {};
 
 export const NamedBlockModal = ({ isOpen, item, setIsOpen, title, renderBody = emptyFunction }) => {

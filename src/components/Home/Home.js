@@ -8,6 +8,7 @@ import instance from "../../api/utils/request.js";
 import useRoles from "../App/useRoles";
 import useToken from "../App/useToken";
 import { toast, ToastContainer } from "react-toastify";
+import styles from "./Home.css";
 
 export default function Home() {
 
@@ -170,30 +171,12 @@ export default function Home() {
              name="duration"
              defaultValue={(currentFilm && currentFilm.duration) ? currentFilm.duration : ""}
              onChange={(e) => setDuration(e.target.value)}></input>
-      <label htmlFor="company">Company: </label>
-      <input type="text"
-             id="company"
-             name="company"
-             defaultValue={(currentFilm && currentFilm.company) ? currentFilm.company : ""}
-             onChange={(e) => setCompany(e.target.value)}></input>
       <label htmlFor="director">Director: </label>
-      <input type="text"
-             id="director"
-             name="director"
-             defaultValue={(currentFilm && currentFilm.director) ? currentFilm.director : ""}
-             onChange={(e) => setDirector(e.target.value)}></input>
-      <label htmlFor="producers">Producers: </label>
       <input type="text"
              id="producers"
              name="producers"
              defaultValue={(currentFilm && currentFilm.producers) ? currentFilm.producers : ""}
              onChange={(e) => setProducers(e.target.value)}></input>
-      <label htmlFor="writers">Writers: </label>
-      <input type="text"
-             id="writers"
-             name="writers"
-             defaultValue={(currentFilm && currentFilm.writers) ? currentFilm.writers : ""}
-             onChange={(e) => setWriters(e.target.value)}></input>
       <label htmlFor="cast">Cast: </label>
       <input type="text"
              id="cast"

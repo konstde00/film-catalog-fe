@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo } from "react";
 import ReactModal from 'react-modal';
 import { CloseOutlined } from '@ant-design/icons';
 import PropTypes from 'prop-types';
@@ -8,9 +8,13 @@ import styles from './Modal.module.scss';
 const Modal = ({ isOpen, onRequestClose, children, title, width }) => {
   const customStyles = useMemo(() => {
     return {
+      body: {
+        overflow: "hidden",
+      },
       header: {
         minWidth: width,
-        maxWidth: width
+        maxWidth: width,
+        overflow: "hidden",
       },
       content: {
         top: '50%',
@@ -24,6 +28,7 @@ const Modal = ({ isOpen, onRequestClose, children, title, width }) => {
         minWidth: width,
         maxWidth: width,
         maxHeight: '75vh',
+        overflow: "hidden"
       },
       overlay: {
         backgroundColor: '#00000070',
@@ -31,6 +36,8 @@ const Modal = ({ isOpen, onRequestClose, children, title, width }) => {
       },
     };
   }, [width]);
+
+
 
   return (
     <ReactModal isOpen={isOpen} onRequestClose={onRequestClose} ariaHideApp={false} style={customStyles}>

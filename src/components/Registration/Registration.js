@@ -2,22 +2,56 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Registration.css';
 import { fetchRequest } from "../../api/utils/request";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 async function registrateUser(credentials) {
-    return fetchRequest({
-        url: 'http://localhost:8080/api/users/v1/registration/email',
-        method: "POST",
-        body: credentials,
-        toastifyError: true
-    })
+    return fetch("http://localhost:8080/api/users/v1/registration/email", {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(credentials)
+      }
+    ).then(res => {
+        console.log("res = " + res.toString());
+        if(!res.ok) {
+            console.log("Error occured")
+            return res.text().then(text => { throw new Error(JSON.stringify(text)) })
+        }
+        else {
+            toast.success("Registration completed succesfully", {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            })
+            return res.json();
+        }
+    }).catch(err => {
+        console.log("Error = " + err)
+        toast.error(JSON.parse(JSON.parse(err.message)).message, {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    });
 }
 
 export default function Registration({ setToken }) {
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
-
+    const navigate = useNavigate();
 
     const handleSubmit = async e => {
 
@@ -28,6 +62,7 @@ export default function Registration({ setToken }) {
         });
         if (token) {
             setToken(token);
+            navigate("/");
         }
     }
 
