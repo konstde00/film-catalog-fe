@@ -14,9 +14,7 @@ const UserProfile = () => {
   const { register, handleSubmit } = useForm();
 
   const [name, setName] = useState(user.name);
-  const [userName, setUserName] = useState(user.userName);
 
-  console.log("User = " + user);
 
   const formattedRoles = user.roles.map(r => r.toLowerCase()
     .replaceAll("role_", ""));
@@ -31,20 +29,6 @@ const UserProfile = () => {
         }
       })
     user.name = name;
-    localStorage.setItem("token", JSON.stringify(user));
-  };
-
-  const handleUserNameChange = async (event) => {
-    event.preventDefault();
-    await axios
-      .patch("http://localhost:8080/api/users/v1?userId=" + user.id + "&userName=" + userName,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        })
-
-    user.userName = userName;
     localStorage.setItem("token", JSON.stringify(user));
   };
 
@@ -99,7 +83,7 @@ const UserProfile = () => {
       <p style={{marginBottom: "20px"}}>Current role: {formattedRoles}</p>
       <div style={{ display: "inline-block", marginRight: "20px" }} >
         <img height={"220px"} width={"220px"} style={{borderRadius:"30px"}}
-             src={user.profileUrl} alt="User Photo" />
+             src={"https://filmcatalog.s3.us-east-1.amazonaws.com/users/" + user.id + "/avatar"} alt="User Photo" />
       </div>
       <div style={{ display: "inline-block"}}>
         <form onSubmit={handleNameChange}>
@@ -113,16 +97,6 @@ const UserProfile = () => {
           <button type="submit">Update name</button>
         </form>
         <br/>
-        {/*<form onSubmit={handleUserNameChange}>*/}
-        {/*  <label>*/}
-        {/*    Username:*/}
-        {/*    <input type="text"*/}
-        {/*           style={{marginLeft: "15px"}}*/}
-        {/*           placeholder={"Tap your username here"}*/}
-        {/*           onChange={(e) => setUserName(e.target.value)} />*/}
-        {/*  </label>*/}
-        {/*  <button type="submit">Update username</button>*/}
-        {/*</form>*/}
         <br/>
         <form onSubmit={handleSubmit(uploadFile)}>
           <input type="file" {...register("file")} />
